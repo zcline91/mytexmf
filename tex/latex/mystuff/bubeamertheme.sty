@@ -1,0 +1,14 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{bubeamertheme}[2022/05/04 First Attempt]
+
+\usefonttheme[onlymath]{serif} % use typical math font in math mode
+\usetheme{Szeged}
+\usecolortheme{beaver}
+\setbeamertemplate{headline}{} % suppress header for extra space
+% Define custom colors
+\definecolor{buorange}{HTML}{EF5B04} % Bucknell orange
+\definecolor{bunavy}{HTML}{003565} % Bucknell navy
+% Set color of various elements in slides
+\setbeamercolor{title}{bg=buorange,fg=white}
+\setbeamercolor{frametitle}{bg=buorange, fg=white}
+\setbeamercolor{palette tertiary}{bg=bunavy,fg=white}
