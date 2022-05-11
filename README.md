@@ -67,7 +67,13 @@ This extension of the exam class is for creating quizzes. Use the `questions` an
 - `\instructor`
 - `\semester`
 
-If a solutions version is also desired, spacing between questions should be set with `\solutionbox{<height>}{<solution>}`. To create a version with solutions, pass the option `answers`. The following options can be passed to style the solutions:
+If a solutions version is also desired, spacing between questions should be set with 
+```latex
+\begin{solutionbox}{<height>} 
+  <solution> 
+\end{solutionbox}
+```
+To create a version with solutions, pass the option `answers`. The following options can be passed to style the solutions:
 - `black-solutions`
 - `blue-solutions`
 - `red-solutions`
@@ -129,6 +135,44 @@ Example:
 \end{document}
 ```
 ---
+### worksheet.cls
+An extension of the exam class, this provides a way to create worksheets for class work, and corresponding solutions. As with the quiz class, the environments `questions` and `parts` are used to create questions, and the spacing/solutions are provided by the `solutionbox` environment.
+
+Solutions can be styled similarly to in the `quiz.cls` environment, and are included by passing the option `answers`.
+
+Unlike the `quiz.cls` command `\addtitle`, this class uses the regular `\maketitle`.
+
+The following should be set in the preamble:
+- `\title`
+- `\coursenumber`
+- `\coursename`
+- `\instructor`
+- `\semester`
+
+Example:
+```latex
+\documentclass[12pt,letterpaper,answers]{worksheet}
+
+\title{Ch. 16 Worksheet}
+\coursenumber{Math216}
+\coursename{Statistics I}
+\instructor{Prof. Cline}
+\semester{Spring 2022}
+
+\begin{document}
+\maketitle 
+
+\begin{questions}
+  \question Here's a question on the worksheet.
+  \begin{solutionbox}{3in}
+    The solution to the problem:
+    \[f'(x) = 3e^{3x} - \frac 1 x.\]
+  \end{solutionbox}
+  \newpage 
+  \question Here's another question.
+\end{questions}
+```
+---
 ## Custom Packages
 
 ### zmacros.sty
@@ -136,5 +180,8 @@ This is a place to store commonly used macros, e.g. `\Z` for integers or `\mc` f
 - `\ds`: a shorthand for `\displaystyle` in math environments
 - `\img`: a shorthand for `\includegraphics` which defaults to a width of `\linewidth`. An optional argument can provide a fractional amount of `\linewidth`. E.g., the command `\img[.5]{<path>}` prints the image at half the width of the page.
 
+---
 ### bubeamertheme.sty
 This provides a minimal theme for beamer slides with Bucknell coloring.
+
+---
