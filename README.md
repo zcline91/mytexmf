@@ -1,6 +1,6 @@
 # My TeXMF
 
-If you want custom latex cls and sty files to be available outside of the directory they're stored in (so if you want to be able to use the package without copying it into every directory of every TeX project, possibly creating different versions), you need to create a texmf directory somewhere on your computer and point you distribution to it.
+If you want custom latex cls and sty files to be available outside of the directory they're stored in (so if you want to be able to use the package without copying it into every directory of every TeX project, possibly creating different versions), you need to create a texmf directory somewhere on your computer and point your distribution to it.
 
 This is my texmf directory that can be cloned onto any computer I need it on, typically in the home directory (~).
 
@@ -25,7 +25,7 @@ This class is for creating clicker questions for use in a classroom. It is an ex
 
 Additionally, if a version without solutions, just questions, is desired, passing the option `handout` to the class will generate this.
 
-Example:
+#### Example
 ```latex
 \documentclass{clicker}
 \mode<presentation>{}
@@ -83,7 +83,7 @@ By default, the solutions will not be boxed and will be printed in blue.
 
 If the quiz will be a group quiz, pass the option `group`. This just changes the "Name" field to "Names".
 
-Example:
+#### Example
 ```latex
 \documentclass[12pt, letterpaper, group, answers]{quiz}
 
@@ -116,7 +116,7 @@ This extension of the article class is for generic course documents. It uses the
 - `\instructor`
 - `\semester`
 
-Example:
+#### Example
 ```latex
 \documentclass[12pt]{coursedoc}
 
@@ -149,7 +149,7 @@ The following should be set in the preamble:
 - `\instructor`
 - `\semester`
 
-Example:
+#### Example
 ```latex
 \documentclass[12pt,letterpaper,answers]{worksheet}
 
@@ -178,7 +178,7 @@ Example:
 ### zmacros.sty
 This is a place to store commonly used macros, e.g. `\Z` for integers or `\mc` for `\mathcal`. Some highlights:
 - `\ds`: a shorthand for `\displaystyle` in math environments
-- `\img`: a shorthand for `\includegraphics` which defaults to a width of `\linewidth`. An optional argument can provide a fractional amount of `\linewidth`. E.g., the command `\img[.5]{<path>}` prints the image at half the width of the page.
+- `\img`: a shorthand for `\includegraphics` which defaults to a width of `\linewidth`. An optional argument can provide a fractional amount of `\linewidth`. E.g., the command `\img[.5]{<path>}` prints the image at half the width of the line.
 
 ---
 ### bubeamertheme.sty
