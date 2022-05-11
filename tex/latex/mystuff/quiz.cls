@@ -1,6 +1,6 @@
 %-------------Identification-------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{quiz}[2022/05/11 v1.1]
+\ProvidesClass{quiz}[2022/05/11 v1.2]
 
 %--------------Initial Code--------------
 \RequirePackage{etoolbox}
@@ -38,11 +38,9 @@
 \def\instructor#1{\gdef\@instructor{#1}}
 \def\@instructor{\@latex@warning@no@line{No \noexpand\instructor given}}
 
-% Save maketitle options for use in header
+% Save title for use in header
 \AtBeginDocument{
   \edef\mytitle{\@title}
-  \edef\mycoursenumber{\@coursenumber}
-  \edef\mysemester{\@semester}
 }
 
 % Custom maketitle
@@ -56,10 +54,11 @@
   }{%
     \makebox[\textwidth]{Name:\enspace\hrulefill}%
   }%
+  \\%
 }
 
 % Make the title and empty the footer
-\AtBeginDocument{
+\newcommand{\addtitle}{
   \maketitle
   \thispagestyle{empty} % \maketitle automatically sets =
 }                       % \thispagestyle{plain}. This undoes that.
@@ -67,9 +66,9 @@
 % Set header and footer
 \pagestyle{head}
 \runningheader
-  {\mycoursenumber}
+  {\@coursenumber}
   {\textsc{\mytitle}\ - Page \thepage\ of \numpages}
-  {\mysemester}
+  {\@semester}
 \runningheadrule
 
 % Quizzes generally shouldn't be indented
