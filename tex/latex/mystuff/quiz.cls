@@ -28,8 +28,6 @@
 
 %----------------Main Code---------------
 
-\RequirePackage{calc}
-
 % Add some new maketitle options
 \def\coursenumber#1{\gdef\@coursenumber{#1}}
 \def\@coursenumber{\@latex@warning@no@line{No \noexpand\coursenumber given}}
