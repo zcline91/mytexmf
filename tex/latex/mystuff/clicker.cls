@@ -1,19 +1,30 @@
+%-------------Identification-------------
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{clicker}[2022/05/04 v1.0]
 
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{beamer}}
-\ProcessOptions\relax
-\LoadClass{beamer}
+%--------------Initial Code--------------
 
+%---------Declaration of Options---------
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{beamer}}
+
+%----------Execution of Options----------
+% \ExecuteOptions{}
+\ProcessOptions\relax
+
+%-------------Package Loading------------
+\LoadClass{beamer}
 \RequirePackage{enumitem}
 \RequirePackage{xcolor}
 
+%----------------Main Code---------------
+% Define colors to be used on solution slides
 \definecolor{clickeranswergreen}{HTML}{30B309}
 \colorlet{answer}{clickeranswergreen}
 \colorlet{distractor}{lightgray}
 
+% Add a counter for clicker question number and define frame
+% which uses counter in title while incrementing.
 \newcounter{question}
-
 \newenvironment{qframe}{%
   \refstepcounter{question} %
   \begin{frame}{Question \thequestion}%
@@ -21,12 +32,17 @@
   \end{frame}%
 }
 
+% environment for multiple choice questions, which instead of 
+% \item, will use \answer and \distractor
 \newenvironment{choices}{%
   \begin{enumerate}[label=\Alph*.]%
 }{%
   \end{enumerate}%
 }
+\newcommand{\answer}{\only<2|handout:0>{\color{answer}} \item}
+\newcommand{\distractor}{\only<2|handout:0>{\color{distractor}} \item}
 
+% commands for a true/false statement which is true (resp. false)
 \newcommand{\true}{%
   {\Large %
     \begin{center}%
@@ -51,6 +67,3 @@
     \end{center}%
   }%
 }
-
-\newcommand{\answer}{\only<2|handout:0>{\color{answer}} \item}
-\newcommand{\distractor}{\only<2|handout:0>{\color{distractor}} \item}
