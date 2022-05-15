@@ -24,7 +24,7 @@
 
 %-------------Package Loading------------
 \LoadClass{exam}
-\RequirePackage[margin=1in]{geometry}
+% \RequirePackage[margin=1in]{geometry}
 
 %----------------Main Code---------------
 

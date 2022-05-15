@@ -13,7 +13,7 @@
 
 %-------------Package Loading------------
 \LoadClass{article}
-\RequirePackage[margin=1in]{geometry}
+% \RequirePackage[margin=1in]{geometry}
 \RequirePackage{fancyhdr}
 \RequirePackage{calc}
 
