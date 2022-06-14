@@ -1,6 +1,6 @@
 %-------------Identification-------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{coursedoc}[2022/05/11 v1]
+\ProvidesClass{coursedoc}[2022/06/14 v1.1]
 
 %--------------Initial Code--------------
 
@@ -16,6 +16,7 @@
 % \RequirePackage[margin=1in]{geometry}
 \RequirePackage{fancyhdr}
 \RequirePackage{calc}
+\RequirePackage{truncate}
 
 %----------------Main Code---------------
 % Add some new maketitle options
@@ -38,16 +39,20 @@
   \begin{center}%
     {\Large \@title } \\[-0.6em] %
     \rule{%
-      \maxof{%
+      \minof{%
         \maxof{%
-          \widthof{\Large \@title}%
+          \maxof{%
+            \widthof{\Large \@title}%
+          }{%
+            \widthof{\@coursenumber{} -- \@coursename{}}%
+          }%
         }{%
-          \widthof{\@coursenumber{} -- \@coursename{}}%
+          \widthof{\@semester{} -- \@instructor{}}%
         }%
+        + 2em%
       }{%
-        \widthof{\@semester{} -- \@instructor{}}%
+        \textwidth
       }%
-     + 2em%
     }{.5pt} \\[-0.5em] %
     \vskip 1ex%
     {\small%
@@ -60,7 +65,10 @@
 % Set header and footer
 \pagestyle{fancy}
 \fancyhf{}
-\chead{\mytitle}
+\chead{\truncate{%
+  \textwidth - \widthof{\@semester} - \widthof{\@coursenumber} - 3em%
+  }{\mytitle}%
+}
 \rhead{\@semester}
 \lhead{\@coursenumber}
 \cfoot{\thepage}

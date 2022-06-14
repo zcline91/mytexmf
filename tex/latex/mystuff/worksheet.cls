@@ -1,6 +1,6 @@
 %-------------Identification-------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{worksheet}[2022/05/11 v1]
+\ProvidesClass{worksheet}[2022/06/14 v1.1]
 
 %--------------Initial Code--------------
 \RequirePackage{etoolbox}
@@ -22,7 +22,7 @@
 %-------------Package Loading------------
 \LoadClass{exam}
 \RequirePackage{calc}
-% \RequirePackage[margin=1in]{geometry}
+\RequirePackage{truncate}
 
 %----------------Main Code---------------
 
@@ -46,16 +46,20 @@
   \begin{center}%
     {\Large \@title } \\[-0.6em] %
     \rule{%
-      \maxof{%
+      \minof{%
         \maxof{%
-          \widthof{\Large \@title}%
+          \maxof{%
+            \widthof{\Large \@title}%
+          }{%
+            \widthof{\@coursenumber{} -- \@coursename{}}%
+          }%
         }{%
-          \widthof{\@coursenumber{} -- \@coursename{}}%
+          \widthof{\@semester{} -- \@instructor{}}%
         }%
+        + 2em%
       }{%
-        \widthof{\@semester{} -- \@instructor{}}%
+        \textwidth
       }%
-     + 2em%
     }{.5pt} \\[-0.5em] %
     \vskip 1ex%
     {\small%
@@ -67,7 +71,15 @@
 
 % Set header and footer
 \pagestyle{headandfoot}
-\runningheader{\@coursenumber}{\textbf{\mytitle}}{\@semester}
+\runningheader{%
+  \@coursenumber%
+}{%
+  \truncate{%
+  \textwidth - \widthof{\@semester} - \widthof{\@coursenumber} - 3em%
+  }{\mytitle}%
+}{%
+  \@semester%
+}
 \runningheadrule
 \runningfooter{}{\thepage}{}
 
