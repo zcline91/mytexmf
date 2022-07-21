@@ -16,7 +16,7 @@
 % \RequirePackage[margin=1in]{geometry}
 \RequirePackage{fancyhdr}
 \RequirePackage{calc}
-\RequirePackage{truncate}
+\RequirePackage[fit]{truncate}
 
 %----------------Main Code---------------
 % Add some new maketitle options
@@ -65,12 +65,12 @@
 % Set header and footer
 \pagestyle{fancy}
 \fancyhf{}
-\chead{\truncate{%
+\fancyhead[R]{\@semester}
+\fancyhead[L]{\@coursenumber}
+\fancyhead[C]{\truncate{%
   \textwidth - \widthof{\@semester} - \widthof{\@coursenumber} - 3em%
   }{\mytitle}%
 }
-\rhead{\@semester}
-\lhead{\@coursenumber}
-\cfoot{\thepage}
+\fancyfoot[C]{\thepage}
 % This is so the headheight isn't too small if 12pt is used.
 \setlength{\headheight}{15pt}

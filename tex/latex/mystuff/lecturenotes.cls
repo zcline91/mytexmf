@@ -34,7 +34,7 @@
     #1%
   }{%
     \textcolor{aircol}{#1}%
-  }
+  }%
 }
 \newcommand{\quest}[1]{%
   \ifbool{@student}{%
