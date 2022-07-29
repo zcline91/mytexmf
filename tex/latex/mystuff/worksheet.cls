@@ -1,6 +1,6 @@
 %-------------Identification-------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{worksheet}[2022/06/14 v1.1]
+\ProvidesClass{worksheet}[2022/07/28 v1.11]
 
 %--------------Initial Code--------------
 \RequirePackage{etoolbox}

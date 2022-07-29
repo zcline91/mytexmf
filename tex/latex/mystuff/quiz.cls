@@ -1,6 +1,6 @@
 %-------------Identification-------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{quiz}[2022/05/11 v1.2]
+\ProvidesClass{quiz}[2022/07/28 v1.21]
 
 %--------------Initial Code--------------
 \RequirePackage{etoolbox}

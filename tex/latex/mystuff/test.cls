@@ -1,6 +1,6 @@
 %-------------Identification-------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{test}[2022/06/14 v1]
+\ProvidesClass{test}[2022/07/28 v1.01]
 
 %--------------Initial Code--------------
 \RequirePackage{etoolbox}
