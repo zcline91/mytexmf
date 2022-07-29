@@ -22,7 +22,7 @@
 %-------------Package Loading------------
 \LoadClass{exam}
 \RequirePackage{calc}
-\RequirePackage{truncate}
+\RequirePackage[fit]{truncate}
 
 %----------------Main Code---------------
 
