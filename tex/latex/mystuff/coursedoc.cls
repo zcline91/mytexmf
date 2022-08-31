@@ -1,6 +1,6 @@
 %-------------Identification-------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{coursedoc}[2022/06/14 v1.1]
+\ProvidesClass{coursedoc}[2022/08/30 v1.1.1]
 
 %--------------Initial Code--------------
 
@@ -14,7 +14,6 @@
 %-------------Package Loading------------
 \LoadClass{article}
 % \RequirePackage[margin=1in]{geometry}
-\RequirePackage{fancyhdr}
 \RequirePackage{calc}
 \RequirePackage[fit]{truncate}
 
@@ -63,14 +62,17 @@
   \par \vskip 1.5em}
 
 % Set header and footer
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[R]{\@semester}
-\fancyhead[L]{\@coursenumber}
-\fancyhead[C]{\truncate{%
-  \textwidth - \widthof{\@semester} - \widthof{\@coursenumber} - 3em%
-  }{\mytitle}%
+\AtBeginDocument{%
+  \RequirePackage{fancyhdr}%
+  \pagestyle{fancy}%
+  \fancyhf{}%
+  \fancyhead[R]{\@semester}%
+  \fancyhead[L]{\@coursenumber}%
+  \fancyhead[C]{\truncate{%
+    \textwidth - \widthof{\@semester} - \widthof{\@coursenumber} - 3em%
+    }{\mytitle}%
+  }%
+  \fancyfoot[C]{\thepage}%
+  % This is so the headheight isn't too small if 12pt is used.%
+  \setlength{\headheight}{15pt}%
 }
-\fancyfoot[C]{\thepage}
-% This is so the headheight isn't too small if 12pt is used.
-\setlength{\headheight}{15pt}
