@@ -1,6 +1,6 @@
 %-------------Identification-------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{test}[2022/07/28 v1.01]
+\ProvidesClass{test}[2022/09/13 v1.1]
 
 %--------------Initial Code--------------
 \RequirePackage{etoolbox}
@@ -105,6 +105,7 @@
 
 % Style solutions
 \SolutionEmphasis{\color{@solutioncolor}}
+\CorrectChoiceEmphasis{\bfseries \color{@solutioncolor}}
 \renewcommand{\solutiontitle}{\noindent\textbf{Solution:}\par\noindent}
 \ifbool{@boxed@solutions}{%
   %
