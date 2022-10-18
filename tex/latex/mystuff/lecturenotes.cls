@@ -20,6 +20,7 @@
 \RequirePackage{amsmath}
 \RequirePackage{amsthm}
 \RequirePackage{mdframed}
+\RequirePackage{marginnote}
 
 %----------------Main Code---------------
 % Define colors to be used for different types of text
@@ -50,7 +51,7 @@
 }
 \newcommand{\mnote}[1]{%
   \ifbool{@student}{}{%
-    \marginpar{\footnotesize \textcolor{mnotecol}{#1}}%
+    \marginnote{\footnotesize \textcolor{mnotecol}{#1}}%
   }%
 }
 
